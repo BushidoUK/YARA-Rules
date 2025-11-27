@@ -1,0 +1,19 @@
+rule redtail_script
+{
+meta:
+  description = "Looks like RedTail cryptomining bot"
+  author = "Will Thomas, @BushidoToken"
+  reference = "https://x.com/BushidoToken/status/1987146925771026461"
+  hash = "07b1d426ba3024b72a10fc7267675a6fb3a9a239565733f0f5166aadbb1594b1"
+  created = "2025-NOV-27"
+  TLP = "CLEAR"
+
+strings:
+  $str1 = "redtail.sh" ascii wide nocase
+  $str2 = "wget" ascii wide nocase
+  $str3 = "clean" ascii wide nocase
+  $str4 = "x86_64" ascii wide nocase
+  
+condition:
+    all of ($str*)
+}
